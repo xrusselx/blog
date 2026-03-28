@@ -12,8 +12,12 @@ app.use(express.static("public"));
 app.get("/", (req, res) => {
   res.render("index", {
     title: "Russel Notes",
-    posts: [{ title: "One Piece", date: "03/26/2026" }],
+    posts: [{ title: "One Piece", date: "03/26/2026", link: "article" }],
   });
+});
+
+app.get("/article", (req, res) => {
+  res.render("article");
 });
 
 // Start server

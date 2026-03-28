@@ -10,9 +10,10 @@
     <h1><%= title %></h1>
     <ul>
     <% posts.forEach(post => { %>
-      <li><%= post.title %> - <%= post.date %></li>
+      <li><a href=<%= post.link %>><%= post.title %> - <%= post.date %></a></li>
     <% }) %>
     </ul>
+    <button>Create Note</button>
 
   </body>
 </html>
