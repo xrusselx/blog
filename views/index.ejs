@@ -8,6 +8,7 @@
   </head>
   <body>
     <h1><%= title %></h1>
+    <%= console.log(posts[0].id); %>
     <ul>
     <% posts.forEach(post => { %>
       <li><a href=<%= post.link %>><%= post.title %> - <%= post.date %></a></li>

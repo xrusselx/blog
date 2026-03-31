@@ -1,4 +1,5 @@
-const express = require("express");
+import express from "express";
+import slugify from "slugify";
 const app = express();
 const port = 3000;
 
@@ -8,15 +9,23 @@ app.set("view engine", "ejs");
 // Serve static files from public
 app.use(express.static("public"));
 
+const posts = [
+  {
+    title: "One Piece",
+    date: "03/26/2026",
+    id: slugify("One Piece", { lower: true, strict: true }),
+  },
+];
+
 // Home route
 app.get("/", (req, res) => {
   res.render("index", {
     title: "Russel Notes",
-    posts: [{ title: "One Piece", date: "03/26/2026", link: "article" }],
+    posts,
   });
 });
 
-app.get("/article", (req, res) => {
+app.get("/:id", (req, res) => {
   res.render("article");
 });
 
