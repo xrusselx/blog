@@ -13,6 +13,7 @@ const posts = [
   {
     title: "One Piece",
     date: "03/26/2026",
+    content: "Wealth, fame, power.",
     id: slugify("One Piece", { lower: true, strict: true }),
   },
 ];
@@ -26,7 +27,14 @@ app.get("/", (req, res) => {
 });
 
 app.get("/:id", (req, res) => {
-  res.render("article");
+  const post = posts.find((p) => p.id === req.params.id);
+  console.log(post);
+
+  if (!post) {
+    return res.status(404).send("Post not found");
+  }
+
+  res.render("post", { post });
 });
 
 // Start server
