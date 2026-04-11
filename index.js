@@ -9,10 +9,12 @@ app.set("view engine", "ejs");
 // Serve static files from public
 app.use(express.static("public"));
 
+app.use(express.urlencoded({ extended: true }));
+
 const posts = [
   {
     title: "One Piece",
-    date: "03/26/2026",
+    date: "3/26/2026",
     content: "Wealth, fame, power.",
     id: slugify("One Piece", { lower: true, strict: true }),
   },
@@ -35,6 +37,16 @@ app.get("/:id", (req, res) => {
   }
 
   res.render("post", { post });
+});
+
+app.post("/submit", (req, res) => {
+  posts.push({
+    title: req.body["postTitle"],
+    date: new Intl.DateTimeFormat("en-US").format(new Date()),
+    content: req.body["postContent"],
+    id: slugify(req.body["postTitle"], { lower: true, strict: true }),
+  });
+  console.log(posts);
 });
 
 // Start server
