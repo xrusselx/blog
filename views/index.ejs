@@ -14,7 +14,6 @@
       <li><a href=<%= post.id %>><%= post.title %> - <%= post.date %></a></li>
     <% }) %>
     </ul>
-    <button>Create Note</button>
 
   <form id="postForm" action="/submit" method="POST">
     <input id="postTitle" name="postTitle" placeholder="Title">

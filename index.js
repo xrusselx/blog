@@ -47,6 +47,10 @@ app.post("/submit", (req, res) => {
     id: slugify(req.body["postTitle"], { lower: true, strict: true }),
   });
   console.log(posts);
+  res.render("index", {
+    title: "Russel Notes",
+    posts,
+  });
 });
 
 // Start server
