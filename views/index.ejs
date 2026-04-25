@@ -13,12 +13,12 @@
     <% posts.forEach(post => { %>
       <li class="post-item">
       
-        <a href=<%= post.id %>><%= post.title %></a>
+        <a href="/<%= post.id %>"><%= post.title %></a>
       
         <div class="menu-container">
           <button class="menu-btn">&#8230;</button>
           <div class="menu">
-            <button>Edit</button>
+            <a href="<%= post.id %>/edit">Edit</a>
             <button>Delete</button>
           </div>
         </div>

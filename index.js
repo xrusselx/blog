@@ -39,6 +39,11 @@ app.get("/:id", (req, res) => {
   res.render("post", { post });
 });
 
+app.get("/:id/edit", (req, res) => {
+  const post = posts.find((p) => p.id == req.params.id);
+  res.render("edit", { post });
+});
+
 app.post("/submit", (req, res) => {
   posts.push({
     title: req.body["postTitle"],
