@@ -11,7 +11,7 @@ app.use(express.static("public"));
 
 app.use(express.urlencoded({ extended: true }));
 
-const posts = [
+let posts = [
   {
     title: "One Piece",
     date: "3/26/2026",
@@ -59,7 +59,7 @@ app.get("/:id/edit", (req, res) => {
 app.post("/:id/edit", (req, res) => {
   const id = req.params.id;
 
-  console.log(req.body);
+  // console.log(req.body);
   const { title, content } = req.body;
 
   const post = posts.find((p) => p.id == id);
@@ -67,6 +67,14 @@ app.post("/:id/edit", (req, res) => {
   post.title = title;
   post.content = content;
 
+  res.redirect("/");
+});
+
+app.post("/:id/delete", (req, res) => {
+  const id = req.params.id;
+  console.log(req.body);
+
+  posts = posts.filter((p) => p.id !== id);
   res.redirect("/");
 });
 

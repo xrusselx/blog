@@ -19,7 +19,9 @@
           <button class="menu-btn">&#8230;</button>
           <div class="menu">
             <a href="<%= post.id %>/edit">Edit</a>
-            <button>Delete</button>
+            <form id="deleteForm" action="/<%= post.id %>/delete" method="POST">
+              <button type="submit">Delete</button>
+            </form>
           </div>
         </div>
       </li>
