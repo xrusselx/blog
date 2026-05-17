@@ -28,6 +28,18 @@ app.get("/", (req, res) => {
   });
 });
 
+app.post("/submit", (req, res) => {
+  posts.push({
+    title: req.body["postTitle"],
+    date: new Intl.DateTimeFormat("en-US").format(new Date()),
+    content: req.body["postContent"],
+    id: slugify(req.body["postTitle"], { lower: true, strict: true }),
+  });
+  console.log(posts);
+
+  res.redirect("/");
+});
+
 app.get("/:id", (req, res) => {
   const post = posts.find((p) => p.id === req.params.id);
   console.log(post);
@@ -44,18 +56,18 @@ app.get("/:id/edit", (req, res) => {
   res.render("edit", { post });
 });
 
-app.post("/submit", (req, res) => {
-  posts.push({
-    title: req.body["postTitle"],
-    date: new Intl.DateTimeFormat("en-US").format(new Date()),
-    content: req.body["postContent"],
-    id: slugify(req.body["postTitle"], { lower: true, strict: true }),
-  });
-  console.log(posts);
-  res.render("index", {
-    title: "Russel Notes",
-    posts,
-  });
+app.post("/:id/edit", (req, res) => {
+  const id = req.params.id;
+
+  console.log(req.body);
+  const { title, content } = req.body;
+
+  const post = posts.find((p) => p.id == id);
+
+  post.title = title;
+  post.content = content;
+
+  res.redirect("/");
 });
 
 // Start server
