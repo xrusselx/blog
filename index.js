@@ -59,7 +59,6 @@ app.get("/:id/edit", (req, res) => {
 app.post("/:id/edit", (req, res) => {
   const id = req.params.id;
 
-  // console.log(req.body);
   const { title, content } = req.body;
 
   const post = posts.find((p) => p.id == id);
