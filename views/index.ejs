@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
     <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/script.js" defer></script>
   </head>
   <body>
     <h1><%= title %></h1>
@@ -15,8 +16,8 @@
         <a href="/<%= post.id %>"><%= post.title %></a>
       
         <div class="menu-container">
-          <button class="menu-btn">&#8230;</button>
-          <div class="menu">
+          <button onclick="toggleMenu('<%= post.id %>', event)" class="menu-btn">&#8230;</button>
+          <div id="menu-<%= post.id %>"  class="menu hidden-menu">
             <a href="<%= post.id %>/edit">Edit</a>
             <form id="deleteForm" action="/<%= post.id %>/delete" method="POST">
               <button type="submit">Delete</button>
@@ -34,6 +35,5 @@
     <input type="submit" value="Submit" />
   </form>
 
-  <script src="/js/script.js"></script>
   </body>
 </html>
