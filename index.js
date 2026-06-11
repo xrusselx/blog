@@ -18,6 +18,12 @@ let posts = [
     content: "Wealth, fame, power.",
     id: slugify("One Piece", { lower: true, strict: true }),
   },
+  {
+    title: "Demon Slayer",
+    date: "5/29/2026",
+    content: "One day in forest.",
+    id: slugify("Demon Slayer", { lower: true, strict: true }),
+  },
 ];
 
 // Home route

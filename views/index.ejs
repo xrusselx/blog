@@ -16,7 +16,7 @@
         <a href="/<%= post.id %>"><%= post.title %></a>
       
         <div class="menu-container">
-          <button onclick="toggleMenu('<%= post.id %>', event)" class="menu-btn">&#8230;</button>
+          <button onclick="toggleMenu('<%= post.id %>', event)" class="menu-btn">&vellip;</button>
           <div id="menu-<%= post.id %>"  class="menu hidden-menu">
             <a href="<%= post.id %>/edit">Edit</a>
             <form id="deleteForm" action="/<%= post.id %>/delete" method="POST">
