@@ -26,9 +26,9 @@
   right: 0;
   background-color: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  padding: 0.5rem 0;
+  padding: 0.5rem;
   border-radius: 8px;
-  min-width: 100px;
+  min-width: 82px;
 
   display: none;
 }
