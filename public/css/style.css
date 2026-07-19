@@ -23,12 +23,17 @@
 .hidden-menu {
   position: absolute;
   top: 100%;
-  right: 0;
+  left: 0;
   background-color: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   padding: 0.5rem;
   border-radius: 8px;
   min-width: 82px;
+  z-index: 100;
 
   display: none;
+}
+
+.editButton {
+  text-decoration: none;
 }
