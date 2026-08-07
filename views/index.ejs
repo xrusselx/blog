@@ -17,10 +17,10 @@
       
         <div class="menu-container">
           <button onclick="toggleMenu('<%= post.id %>', event)" class="menu-btn">&vellip;</button>
-          <div id="menu-<%= post.id %>"  class="menu hidden-menu">
-            <a class="editButton" href="<%= post.id %>/edit">Edit</a>
+          <div id="menu-<%= post.id %>"  class="hidden-menu">
+            <a class="menu-item editButton" href="<%= post.id %>/edit">Edit</a>
             <form id="deleteForm" action="/<%= post.id %>/delete" method="POST">
-              <button class="deleteButton" type="submit">Delete</button>
+              <button class="menu-item deleteButton" type="submit">Delete</button>
             </form>
           </div>
         </div>

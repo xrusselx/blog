@@ -7,7 +7,7 @@ function toggleMenu(id, event) {
     menu.style.display = "none";
   } else {
     closeAllMenus();
-    menu.style.display = "block";
+    menu.style.display = "flex";
   }
 }
 
